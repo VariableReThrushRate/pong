@@ -1,10 +1,12 @@
-TITLE_ID = VITAPONG
+TITLE_ID = PONG12345 
 TARGET   = VitaPong
 OBJS     = pong.c
 PSVITAIP = 63.135.36.11
-LIBS = -lvita2d -lSceDisplay_stub -lSceGxm_stub \
+LIBS = -lSDL2 -lSceDisplay_stub -lSceGxm_stub -lSceIme_stub -lSceAppUtil_stub -lSceAudio_stub -lSceAudioIn_stub -lSceIofilemgr_stub  -lSceTouch_stub -lSceHid_stub -lSceMotion_stub -lScePower_stub -lSceProcessmgr_stub \
 	-lSceSysmodule_stub -lSceCtrl_stub -lScePgf_stub -lScePvf_stub \
 	-lSceCommonDialog_stub -lfreetype -lpng -ljpeg -lz -lm -lc -lSceAppMgr_stub
+
+
 
 PREFIX  = arm-vita-eabi
 CC      = $(PREFIX)-gcc
@@ -13,7 +15,7 @@ ASFLAGS = $(CFLAGS)
 
 # Link against the locally-built version of libvita2d if possible
 LIBS += -L../libvita2d
-CFLAGS += -I../libvita2d/include
+CFLAGS += -I/opt/vitasdk/arm-vita-eabi/include/SDL2 -I../libvita2d/include
 
 all: $(TARGET).vpk
 
