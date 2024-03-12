@@ -1,11 +1,18 @@
 
 //Using libs SDL, glibc
-#include <SDL.h>	//SDL version 2.0
+#include <SDL2/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-#define SCREEN_WIDTH 640	//window height
-#define SCREEN_HEIGHT 480	//window width
+#include <psp2/ctrl.h>
+#include <psp2/kernel/processmgr.h>
+
+
+#include <vitasdk.h>
+#include <vita2d.h>
+
+#define SCREEN_WIDTH 960	//window height
+#define SCREEN_HEIGHT 544	//window width
 
 //function prototypes
 //initilise SDL
@@ -535,6 +542,9 @@ int main (int argc, char *args[]) {
 		return 0;
 	}
 	
+	SceCtrlData pad;
+	memset(&pad, 0, sizeof(pad));
+
 	SDL_GetWindowSize(window, &width, &height);
 	
 	int sleep = 0;
@@ -551,20 +561,20 @@ int main (int argc, char *args[]) {
 	
 		//check for new events every frame
 		SDL_PumpEvents();
-
-		const Uint8 *keystate = SDL_GetKeyboardState(NULL);
+		sceCtrlPeekBufferPositive(0, &pad, 1);
+		//const Uint8 *keystate = SDL_GetKeyboardState(NULL);
 		
-		if (keystate[SDL_SCANCODE_ESCAPE]) {
+		if (pad.buttons & SCE_CTRL_START) {
 		
 			quit = 1;
 		}
 		
-		if (keystate[SDL_SCANCODE_DOWN]) {
+		if (pad.buttons & SCE_CTRL_DOWN) {
 			
 			move_paddle(0);
 		}
 
-		if (keystate[SDL_SCANCODE_UP]) {
+		if (pad.buttons & SCE_CTRL_UP) {
 			
 			move_paddle(1);
 		}
@@ -576,7 +586,7 @@ int main (int argc, char *args[]) {
 		//display main menu
 		if (state == 0 ) {
 		
-			if (keystate[SDL_SCANCODE_SPACE]) {
+			if (pad.buttons & SCE_CTRL_SELECT) {
 				
 				state = 1;
 			}
@@ -587,7 +597,7 @@ int main (int argc, char *args[]) {
 		//display gameover
 		} else if (state == 2) {
 		
-			if (keystate[SDL_SCANCODE_SPACE]) {
+			if (pad.buttons & SCE_CTRL_START) {
 				state = 0;
 				//delay for a little bit so the space bar press dosnt get triggered twice
 				//while the main menu is showing
