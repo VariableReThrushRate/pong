@@ -3,7 +3,9 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "/usr/local/vitasdk/**",
+                "/usr/local/vitasdk/arm-vita-eabi/include"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
