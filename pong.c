@@ -540,19 +540,12 @@ SDL_Renderer  * gRenderer = NULL;
 int main (int argc, char *args[]) {
 		
 	//SDL Window setup
-	//if (init(SCREEN_WIDTH, SCREEN_HEIGHT, argc, args) == 1) {
+	if (init(SCREEN_WIDTH, SCREEN_HEIGHT, argc, args) == 1) {
 		
-	//	return 0;
-	//}
+		return 0;
+	}
 	 
-	 if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
-      return -1;
-
-  	if ((gWindow = SDL_CreateWindow( "RedRectangle", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN)) == NULL)
-    return -1;
-
-	if ((gRenderer = SDL_CreateRenderer( gWindow, -1, 0)) == NULL)
-      return -1;
+	
 
 	SceCtrlData pad;
 	memset(&pad, 0, sizeof(pad));
