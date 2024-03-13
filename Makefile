@@ -15,7 +15,7 @@ ASFLAGS = $(CFLAGS)
 
 # Link against the locally-built version of libvita2d if possible
 LIBS += -L../libvita2d
-CFLAGS += -I/opt/vitasdk/arm-vita-eabi/include/SDL2 -I../libvita2d/include
+CFLAGS += -I/opt/vitasdk/arm-vita-eabi/include/SDL2 -I../libvita2d/include -g
 
 all: $(TARGET).vpk
 
