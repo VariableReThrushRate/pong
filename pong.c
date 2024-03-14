@@ -17,7 +17,6 @@
 //function prototypes
 //initilise SDL
 //I need to unimpliment args
-//I really need to unimplient args
 int init(int w, int h, int argc, char *args[]);
 
 typedef struct ball_s {
