@@ -16,6 +16,7 @@
 
 //function prototypes
 //initilise SDL
+
 int init(int w, int h, int argc, char *args[]);
 
 typedef struct ball_s {
@@ -538,10 +539,10 @@ SDL_Window    * gWindow   = NULL;
 SDL_Renderer  * gRenderer = NULL;
 
 int main (int argc, char *args[]) {
-		
+	printf("made it to main");
 	//SDL Window setup
 	if (init(SCREEN_WIDTH, SCREEN_HEIGHT, argc, args) == 1) {
-		
+		printf("CRITICAL FAILURE: WINDOW NOT INIT");
 		return 0;
 	}
 	 
@@ -549,9 +550,9 @@ int main (int argc, char *args[]) {
 
 	SceCtrlData pad;
 	memset(&pad, 0, sizeof(pad));
-
+	printf("pad init success");
 	SDL_GetWindowSize(window, &width, &height);
-	
+	printf("Window init success");
 	int sleep = 0;
 	int quit = 0;
 	int state = 0;
@@ -694,10 +695,12 @@ int main (int argc, char *args[]) {
 }
 
 int init(int width, int height, int argc, char *args[]) {
+	 printf("Made it to init");
 
 	//Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 
+		printf("fail 703");
 		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		
 		return 1;
@@ -708,6 +711,7 @@ int init(int width, int height, int argc, char *args[]) {
 	for (i = 0; i < argc; i++) {
 		
 		//Create window	
+		printf("args doesn't exist, may need to refactor");
 		if(strcmp(args[i], "-f")) {
 			
 			SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN, &window, &renderer);
@@ -719,6 +723,8 @@ int init(int width, int height, int argc, char *args[]) {
 	}
 
 	if (window == NULL) { 
+
+		printf("error 727");
 		
 		printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 		
@@ -729,7 +735,7 @@ int init(int width, int height, int argc, char *args[]) {
 	screen = SDL_CreateRGBSurfaceWithFormat(0, width, height, 32, SDL_PIXELFORMAT_RGBA32);
 	
 	if (screen == NULL) {
-		
+		printf("error 738");
 		printf("Could not create the screen surfce! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -739,7 +745,7 @@ int init(int width, int height, int argc, char *args[]) {
 	screen_texture = SDL_CreateTextureFromSurface(renderer, screen);
 
 	if (screen_texture == NULL) {
-		
+		printf("error 748");
 		printf("Could not create the screen_texture! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -749,7 +755,7 @@ int init(int width, int height, int argc, char *args[]) {
 	title = SDL_LoadBMP("title.bmp");
 
 	if (title == NULL) {
-		
+		printf("error 758");
 		printf("Could not Load title image! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -759,7 +765,7 @@ int init(int width, int height, int argc, char *args[]) {
 	numbermap = SDL_LoadBMP("numbermap.bmp");
 
 	if (numbermap == NULL) {
-		
+		printf("error 768");
 		printf("Could not Load numbermap image! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -769,16 +775,17 @@ int init(int width, int height, int argc, char *args[]) {
 	end = SDL_LoadBMP("gameover.bmp");
 
 	if (end == NULL) {
-		
+		printf("error 778");
 		printf("Could not Load title image! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
 	}
 	
 	// Set the title colourkey. 
+	printf("made it to colorkey");
 	Uint32 colorkey = SDL_MapRGB(title->format, 255, 0, 255);
 	SDL_SetColorKey(title, SDL_TRUE, colorkey);
 	SDL_SetColorKey(numbermap, SDL_TRUE, colorkey);
-	
+	printf("made it past colorkey");
 	return 0;
 }
