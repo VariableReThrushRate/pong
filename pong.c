@@ -561,7 +561,7 @@ int main (int argc, char *args[]) {
 	
 	// Initialize the ball position data. 
 	init_game();
-	
+	printf("made it past init game");
 	//render loop
 	while(quit == 0) {
 	
@@ -592,7 +592,7 @@ int main (int argc, char *args[]) {
 		//display main menu
 		if (state == 0 ) {
 		
-			if (pad.buttons & SCE_CTRL_SELECT) {
+			if (pad.buttons & SCE_CTRL_START) {
 				
 				state = 1;
 			}
