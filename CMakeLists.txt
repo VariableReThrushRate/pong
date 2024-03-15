@@ -19,9 +19,9 @@ set(VITA_VERSION  "00.80")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
+#set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
+#set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build)
 include_directories(
   ../common
 )
@@ -41,8 +41,8 @@ vita_create_vpk(${PROJECT_NAME}.vpk ${VITA_TITLEID} ${PROJECT_NAME}.self
   FILE gameover.bmp gameover.bmp
   FILE numbermap.bmp numbermap.bmp
   FILE title.bmp title.bmp
-  #FILE sce_sys/icon0.png sce_sys/icon0.png
-  #FILE sce_sys/livearea/contents/bg.png sce_sys/livearea/contents/bg.png
-  #FILE sce_sys/livearea/contents/startup.png sce_sys/livearea/contents/startup.png
-  #FILE sce_sys/livearea/contents/template.xml sce_sys/livearea/contents/template.xml
+  FILE sce_sys/icon0.png sce_sys/icon0.png
+  FILE sce_sys/livearea/contents/bg.png sce_sys/livearea/contents/bg.png
+  FILE sce_sys/livearea/contents/startup.png sce_sys/livearea/contents/startup.png
+  FILE sce_sys/livearea/contents/template.xml sce_sys/livearea/contents/template.xml
 )

@@ -1,0 +1,7 @@
+# Hashes of file build rules.
+4385ea7d10f3041433d527bcca487066 CMakeFiles/vitapong-velf
+992ca913cd5d7a9768438a175da2d08b CMakeFiles/vitapong.self-self
+c9c187cd4b6b385c4db1df4786ac68f7 CMakeFiles/vitapong.vpk-vpk
+302f365a118cf495e28b83461f5c7f3b vitapong.self.out
+b1fb9b32808b926f47f4d9cbd8357428 vitapong.vpk.out
+2012353765beffe6b2af0bf0a48d1ccb vitapong.vpk_param.sfo
