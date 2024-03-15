@@ -1,2 +1,7 @@
 build/
 build.sh
+vitapong.vpk
+CMakeFiles/
+vitapong.vpk.out
+CMakeOutput.log
+compiler_depend.make
