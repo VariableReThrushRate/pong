@@ -750,7 +750,7 @@ int init(int width, int height, int argc, char *args[]) {
 
 		return 1;
 	}
-
+	/*
 	//Load the title image
 	title = SDL_LoadBMP("title.bmp");
 
@@ -780,7 +780,7 @@ int init(int width, int height, int argc, char *args[]) {
 
 		return 1;
 	}
-	
+	*/
 	// Set the title colourkey. 
 	sceClibPrintf("made it to colorkey\n");
 	Uint32 colorkey = SDL_MapRGB(title->format, 255, 0, 255);

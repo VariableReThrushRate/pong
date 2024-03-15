@@ -1,6 +1,6 @@
 TITLE_ID = PONG12345 
 TARGET   = VitaPong
-OBJS     = pong.c
+OBJS     = pong.c 
 PSVITAIP = 10.0.0.199
 LIBS = -lSDL2 -lSceDisplay_stub -lSceGxm_stub -lSceIme_stub -lSceAppUtil_stub -lSceAudio_stub -lSceAudioIn_stub -lSceIofilemgr_stub  -lSceTouch_stub -lSceHid_stub -lSceMotion_stub -lScePower_stub -lSceProcessmgr_stub \
 	-lSceSysmodule_stub -lSceCtrl_stub -lScePgf_stub -lScePvf_stub \
