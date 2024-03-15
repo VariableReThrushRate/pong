@@ -17,7 +17,7 @@
 //function prototypes
 //initilise SDL
 //I need to unimpliment args
-int init(int w, int h, int argc, char *args[]);
+int init(int w, int h, int argc);
 
 typedef struct ball_s {
 
@@ -541,7 +541,7 @@ SDL_Renderer  * gRenderer = NULL;
 int main (int argc, char *args[]) {
 	sceClibPrintf("made it to main\n");
 	//SDL Window setup
-	if (init(SCREEN_WIDTH, SCREEN_HEIGHT, argc, args) == 1) {
+	if (init(SCREEN_WIDTH, SCREEN_HEIGHT, argc) == 1) {
 		sceClibPrintf("CRITICAL FAILURE: WINDOW NOT INIT\n");
 		return 0;
 	}
@@ -694,7 +694,7 @@ int main (int argc, char *args[]) {
 	
 }
 
-int init(int width, int height, int argc, char *args[]) {
+int init(int width, int height, int argc) {
 	 sceClibPrintf("Made it to init\n");
 
 	//Initialize SDL
@@ -712,14 +712,8 @@ int init(int width, int height, int argc, char *args[]) {
 		
 		//Create window	
 		sceClibPrintf("args doesn't exist, may need to refactor\n");
-		if(strcmp(args[i], "-f")) {
-			
-			SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN, &window, &renderer);
+		SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP, &window, &renderer);
 		
-		} else {
-		
-			SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP, &window, &renderer);
-		}
 	}
 
 	if (window == NULL) { 
