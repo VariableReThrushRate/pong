@@ -235,6 +235,7 @@ static void move_ball() {
 				if (ball.x < 30) {
 				
 					ball.x = 30;
+					sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
 				}
 				
 			//ball moving left
@@ -244,6 +245,8 @@ static void move_ball() {
 				if (ball.x > 514) {
 				
 					ball.x = 514;
+					sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
+
 				}
 			}
 		}
