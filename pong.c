@@ -570,7 +570,7 @@ int main (int argc, char *args[]) {
 		sceCtrlPeekBufferPositive(0, &pad, 1);
 		//const Uint8 *keystate = SDL_GetKeyboardState(NULL);
 		
-		if (pad.buttons & SCE_CTRL_START) {
+		if (pad.buttons & SCE_CTRL_SELECT) {
 		
 			quit = 1;
 		}
@@ -744,7 +744,7 @@ int init(int width, int height, int argc) {
 
 		return 1;
 	}
-	/*
+	
 	//Load the title image
 	title = SDL_LoadBMP("title.bmp");
 
@@ -774,7 +774,7 @@ int init(int width, int height, int argc) {
 
 		return 1;
 	}
-	*/
+	
 	// Set the title colourkey. 
 	sceClibPrintf("made it to colorkey\n");
 	Uint32 colorkey = SDL_MapRGB(title->format, 255, 0, 255);
