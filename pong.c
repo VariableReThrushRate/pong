@@ -444,7 +444,7 @@ static void draw_net() {
 	
 		if (r != 0) { 
 		
-			sceClibPrintf("fill rectangle faliled in func draw_net()");
+			sceClibPrintf("fill rectangle faliled in func draw_net()\n");
 		}
 
 		net.y = net.y + 30;
@@ -464,7 +464,7 @@ static void draw_ball() {
 
 	if (r !=0){
 	
-		sceClibPrintf("fill rectangle faliled in func drawball()");
+		sceClibPrintf("fill rectangle faliled in func drawball()\n");
 	}
 }
 
@@ -484,7 +484,7 @@ static void draw_paddle() {
 		
 		if (r !=0){
 		
-			sceClibPrintf("fill rectangle faliled in func draw_paddle()");
+			sceClibPrintf("fill rectangle faliled in func draw_paddle()\n");
 		}
 	}
 }
@@ -539,10 +539,10 @@ SDL_Window    * gWindow   = NULL;
 SDL_Renderer  * gRenderer = NULL;
 
 int main (int argc, char *args[]) {
-	sceClibPrintf("made it to main");
+	sceClibPrintf("made it to main\n");
 	//SDL Window setup
 	if (init(SCREEN_WIDTH, SCREEN_HEIGHT, argc, args) == 1) {
-		sceClibPrintf("CRITICAL FAILURE: WINDOW NOT INIT");
+		sceClibPrintf("CRITICAL FAILURE: WINDOW NOT INIT\n");
 		return 0;
 	}
 	 
@@ -550,9 +550,9 @@ int main (int argc, char *args[]) {
 
 	SceCtrlData pad;
 	memset(&pad, 0, sizeof(pad));
-	sceClibPrintf("pad init success");
+	sceClibPrintf("pad init success\n");
 	SDL_GetWindowSize(window, &width, &height);
-	sceClibPrintf("Window init success");
+	sceClibPrintf("Window init success\n");
 	int sleep = 0;
 	int quit = 0;
 	int state = 0;
@@ -561,7 +561,7 @@ int main (int argc, char *args[]) {
 	
 	// Initialize the ball position data. 
 	init_game();
-	sceClibPrintf("made it past init game");
+	sceClibPrintf("made it past init game\n");
 	//render loop
 	while(quit == 0) {
 	
@@ -695,12 +695,12 @@ int main (int argc, char *args[]) {
 }
 
 int init(int width, int height, int argc, char *args[]) {
-	 sceClibPrintf("Made it to init");
+	 sceClibPrintf("Made it to init\n");
 
 	//Initialize SDL
 	if (SDL_Init(SDL_INIT_VIDEO) < 0) {
 
-		sceClibPrintf("fail 703");
+		sceClibPrintf("fail 703\n");
 		sceClibPrintf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		
 		return 1;
@@ -711,7 +711,7 @@ int init(int width, int height, int argc, char *args[]) {
 	for (i = 0; i < argc; i++) {
 		
 		//Create window	
-		sceClibPrintf("args doesn't exist, may need to refactor");
+		sceClibPrintf("args doesn't exist, may need to refactor\n");
 		if(strcmp(args[i], "-f")) {
 			
 			SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN, &window, &renderer);
@@ -724,7 +724,7 @@ int init(int width, int height, int argc, char *args[]) {
 
 	if (window == NULL) { 
 
-		sceClibPrintf("error 727");
+		sceClibPrintf("error 727\n");
 		
 		sceClibPrintf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
 		
@@ -735,7 +735,7 @@ int init(int width, int height, int argc, char *args[]) {
 	screen = SDL_CreateRGBSurfaceWithFormat(0, width, height, 32, SDL_PIXELFORMAT_RGBA32);
 	
 	if (screen == NULL) {
-		sceClibPrintf("error 738");
+		sceClibPrintf("error 738\n");
 		sceClibPrintf("Could not create the screen surfce! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -745,7 +745,7 @@ int init(int width, int height, int argc, char *args[]) {
 	screen_texture = SDL_CreateTextureFromSurface(renderer, screen);
 
 	if (screen_texture == NULL) {
-		sceClibPrintf("error 748");
+		sceClibPrintf("error 748\n");
 		sceClibPrintf("Could not create the screen_texture! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -755,7 +755,7 @@ int init(int width, int height, int argc, char *args[]) {
 	title = SDL_LoadBMP("title.bmp");
 
 	if (title == NULL) {
-		sceClibPrintf("error 758");
+		sceClibPrintf("error 758\n");
 		sceClibPrintf("Could not Load title image! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -765,7 +765,7 @@ int init(int width, int height, int argc, char *args[]) {
 	numbermap = SDL_LoadBMP("numbermap.bmp");
 
 	if (numbermap == NULL) {
-		sceClibPrintf("error 768");
+		sceClibPrintf("error 768\n");
 		sceClibPrintf("Could not Load numbermap image! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
@@ -775,17 +775,17 @@ int init(int width, int height, int argc, char *args[]) {
 	end = SDL_LoadBMP("gameover.bmp");
 
 	if (end == NULL) {
-		sceClibPrintf("error 778");
+		sceClibPrintf("error 778\n");
 		sceClibPrintf("Could not Load title image! SDL_Error: %s\n", SDL_GetError());
 
 		return 1;
 	}
 	
 	// Set the title colourkey. 
-	sceClibPrintf("made it to colorkey");
+	sceClibPrintf("made it to colorkey\n");
 	Uint32 colorkey = SDL_MapRGB(title->format, 255, 0, 255);
 	SDL_SetColorKey(title, SDL_TRUE, colorkey);
 	SDL_SetColorKey(numbermap, SDL_TRUE, colorkey);
-	sceClibPrintf("made it past colorkey");
+	sceClibPrintf("made it past colorkey\n");
 	return 0;
 }
