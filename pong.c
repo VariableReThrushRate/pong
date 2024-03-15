@@ -241,9 +241,9 @@ static void move_ball() {
 			} else {
 				
 				//teleport ball to avoid mutli collision glitch
-				if (ball.x > 600) {
+				if (ball.x > 514) {
 				
-					ball.x = 600;
+					ball.x = 514;
 				}
 			}
 		}
@@ -566,7 +566,7 @@ int main (int argc, char *args[]) {
 	while(quit == 0) {
 	
 		//check for new events every frame
-		SDL_PumpEvents();
+		//SDL_PumpEvents();
 		sceCtrlPeekBufferPositive(0, &pad, 1);
 		//const Uint8 *keystate = SDL_GetKeyboardState(NULL);
 		
