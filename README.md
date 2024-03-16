@@ -1,3 +1,12 @@
+# VITA PONG
+
+This is a port of a recreation of the classic game of Pong for the PS Vita.
+I created this in a few days as a way to learn basic C syntax and maintaining my own GitHub repo.
+This was a neat  way to learn these concepts, and I look forward to future projects.
+I'm gonna come back to this and implement left analog stick support in the future.
+Feel free to recommend balance changes if you want.
+Original ReadMe follows.
+
 # PONG
 
 This is a recreation of the classic pong video game. Implemented in the C
