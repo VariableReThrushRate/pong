@@ -15,7 +15,7 @@ find_package(SDL2 REQUIRED)
 
 set(VITA_APP_NAME "Vita Pong")
 set(VITA_TITLEID  "VSDK00017")
-set(VITA_VERSION  "00.80")
+set(VITA_VERSION  "01.00")
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=gnu11")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
