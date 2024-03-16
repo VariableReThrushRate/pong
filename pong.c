@@ -174,7 +174,7 @@ static void move_ball() {
 
 		//collision detected	
 		if (c == 1) {
-			
+			sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
 			//ball moving left
 			if (ball.dx < 0) {
 					
@@ -242,13 +242,14 @@ static void move_ball() {
 			} else {
 				
 				//teleport ball to avoid mutli collision glitch
-				if (ball.x > 514) {
+				if (ball.x > 600) {
 				
-					ball.x = 514;
+					ball.x = 600;
 					sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
 
 				}
 			}
+			sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
 		}
 	}
 }
