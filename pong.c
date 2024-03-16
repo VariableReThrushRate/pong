@@ -246,9 +246,9 @@ static void move_ball() {
 			} else {
 				
 				//teleport ball to avoid mutli collision glitch
-				if (ball.x > 600) {
+				if (ball.x > 920) {
 				
-					ball.x = 600;
+					ball.x = 920;
 					sceClibPrintf("Ball position is: x = %d", ball.x);
 					sceClibPrintf(" y = %d", ball.y );
 					sceClibPrintf("\n");
