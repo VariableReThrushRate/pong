@@ -174,7 +174,9 @@ static void move_ball() {
 
 		//collision detected	
 		if (c == 1) {
-			sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
+			sceClibPrintf("Ball position is: x = ", ball.x);
+			sceClibPrintf("y = ", ball.y);
+			sceClibPrintf("\n");
 			//ball moving left
 			if (ball.dx < 0) {
 					
@@ -235,7 +237,9 @@ static void move_ball() {
 				if (ball.x < 30) {
 				
 					ball.x = 30;
-					sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
+					sceClibPrintf("Ball position is: x = ", ball.x);
+					sceClibPrintf("y = ", ball.y);
+					sceClibPrintf("\n");
 				}
 				
 			//ball moving left
@@ -245,11 +249,16 @@ static void move_ball() {
 				if (ball.x > 600) {
 				
 					ball.x = 600;
-					sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
+					sceClibPrintf("Ball position is: x = ", ball.x);
+					sceClibPrintf("y = ", ball.y );
 
 				}
 			}
-			sceClibPrintf("Ball position is: x = ", ball.x, "y = ", ball.y );
+			sceClibPrintf("Ball position is: x = ", ball.x);
+			sceClibPrintf("y = ", ball.y );
+			sceClibPrintf("\n");
+
+
 		}
 	}
 }
