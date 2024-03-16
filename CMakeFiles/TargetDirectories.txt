@@ -1,6 +1,0 @@
-/home/falcon/CodeProjs/vitapong/CMakeFiles/vitapong.dir
-/home/falcon/CodeProjs/vitapong/CMakeFiles/vitapong-velf.dir
-/home/falcon/CodeProjs/vitapong/CMakeFiles/vitapong.self-self.dir
-/home/falcon/CodeProjs/vitapong/CMakeFiles/vitapong.vpk-vpk.dir
-/home/falcon/CodeProjs/vitapong/CMakeFiles/edit_cache.dir
-/home/falcon/CodeProjs/vitapong/CMakeFiles/rebuild_cache.dir
